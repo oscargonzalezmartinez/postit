@@ -3,6 +3,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.2.RELEASE</version>
+</parent>
+
     <groupId>org.ogm.postit</groupId>
     <artifactId>api-rest</artifactId>
     <packaging>war</packaging>
@@ -18,8 +24,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <!-- Import dependency management from Spring Boot -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>1.4.0.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
 
     <dependencies>
         <dependency>
@@ -52,6 +67,23 @@
             <scope>test</scope>
         </dependency>
 		
+		<!-- spring boot -->
+
+      <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+</dependency>
+
 <!-- hibernate + spring -->
 <dependency>
 	<groupId>org.hibernate</groupId>
@@ -73,49 +105,44 @@
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-aop</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-beans</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-core</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-context</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-context-support</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-expression</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-orm</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-jdbc</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-tx</artifactId>
-	<version>4.2.4.RELEASE</version>
 </dependency>
 
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+</dependency>
 <!-- data source -->
 <!-- pool -->
 <dependency>
@@ -132,7 +159,7 @@
     </dependencies>
 
     <build>
-        <finalName>karmapi</finalName>
+        <finalName>---</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -173,6 +200,15 @@
                     <war>${project.build.directory}/${project.build.finalName}.war</war>
                 </configuration>
             </plugin>
+            
+            
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+
         </plugins>
 		<resources>
 			<resource>
