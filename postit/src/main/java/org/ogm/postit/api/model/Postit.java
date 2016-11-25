@@ -2,9 +2,12 @@ package org.ogm.postit.api.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,6 +28,11 @@ public class Postit {
 	private String color = null;
 	@Column(name="TEXT",length=500)
 	private String text = null;
+
+	 @ManyToOne(fetch=FetchType.LAZY)
+     @JoinColumn(name="PROJECT_ID")
+	 private Project project;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +62,12 @@ public class Postit {
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	
 	

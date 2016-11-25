@@ -1,10 +1,16 @@
 package org.ogm.postit.api.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,6 +32,13 @@ public class User {
 	@Column(name="EMAIL")
 	private String email = null;
 
+	  @ManyToMany(fetch=FetchType.LAZY)
+	  @JoinTable(
+	      name="USER_PROJECTS",
+	      joinColumns=@JoinColumn(name="USER_ID", referencedColumnName="ID"),
+	      inverseJoinColumns=@JoinColumn(name="PROJECT_ID", referencedColumnName="ID"))
+	  private List<Project> projects;
+ 
 	public Long getId() {
 		return id;
 	}
@@ -56,6 +69,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 	
 	

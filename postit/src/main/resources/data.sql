@@ -1,3 +1,7 @@
 insert into t_user values(1,'ogm','Oscar','oscar@uncorreo.es')
 insert into t_user values(2,'peptio01','Pepito Pérez','pepitoperez@uncorreo.es')
 insert into T_POSTIT(id,id_user,title,text,color) values(1,1,'Título','Esto es el texto completo','#ffaabb')
+insert into t_project (id, description,title) values (1,'Descripcion','Título')
+insert into t_project (id, description,title) values (2,'Descripcion2','Título2')
+insert into user_projects (user_id,project_id) values (1,1)
+insert into user_projects (user_id,project_id) values (1,2)
