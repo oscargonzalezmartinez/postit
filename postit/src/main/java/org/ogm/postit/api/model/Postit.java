@@ -19,11 +19,11 @@ public class Postit {
 	private Long id = null;
 	@Column(name="ID_USER")
 	private Long userId = null;
-	@Column(name="TITLE")
+	@Column(name="TITLE",length=100)
 	private String title = null;
-	@Column(name="COLOR")
+	@Column(name="COLOR",length=7)
 	private String color = null;
-	@Column(name="TEXT")
+	@Column(name="TEXT",length=500)
 	private String text = null;
 	public Long getId() {
 		return id;

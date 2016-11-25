@@ -1,5 +1,5 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
 	<persistence-unit name="MyPersistenceUnit" transaction-type="RESOURCE_LOCAL" >
-		<class>User</class>
+		<class>org.ogm.postit.api.model.User</class>
 	</persistence-unit>
 </persistence>
