@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "T_USER")
 public class User {
@@ -32,6 +34,7 @@ public class User {
 	@Column(name="EMAIL")
 	private String email = null;
 
+	@JsonIgnore
 	  @ManyToMany(fetch=FetchType.LAZY)
 	  @JoinTable(
 	      name="USER_PROJECTS",
