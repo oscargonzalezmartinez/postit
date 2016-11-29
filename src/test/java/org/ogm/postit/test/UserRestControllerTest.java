@@ -14,19 +14,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
-public class ProjectRestControllerTest extends TestBase{
+public class UserRestControllerTest extends TestBase{
 
-    
-    @Test
-    public void readProjectByUser() throws Exception {
-   	   
-        mockMvc.perform(get("/project/user/1"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].description", is("Descripcion")));
-    }
+	@Test
+	public void getUserInfo() throws Exception {
+        mockMvc.perform(get("/user/1"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(contentType))
+       // .andExpect(jsonPath("$", hasSize(1)))
+        .andExpect(jsonPath("$.user", is("ogm")))
+        .andExpect(jsonPath("$.nombre", is("Oscar")))
+        .andExpect(jsonPath("$.email", is("oscar@uncorreo.es")));
+
+	}
 }
