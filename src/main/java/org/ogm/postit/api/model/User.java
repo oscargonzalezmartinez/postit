@@ -29,7 +29,7 @@ public class User {
 	private String user = null;
 	
 	@Column(name="NAME")
-	private String nombre = null;
+	private String name = null;
 	
 	@Column(name="EMAIL")
 	private String email = null;
@@ -58,12 +58,12 @@ public class User {
 		this.user = user;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String nombre) {
+		this.name = nombre;
 	}
 
 	public String getEmail() {
