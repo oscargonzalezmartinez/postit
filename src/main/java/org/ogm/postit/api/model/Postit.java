@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "T_POSTIT")
 public class Postit {
@@ -28,7 +30,8 @@ public class Postit {
 	private String color = null;
 	@Column(name="TEXT",length=500)
 	private String text = null;
-
+	
+	@JsonIgnore
 	 @ManyToOne(fetch=FetchType.LAZY)
      @JoinColumn(name="PROJECT_ID")
 	 private Project project;
