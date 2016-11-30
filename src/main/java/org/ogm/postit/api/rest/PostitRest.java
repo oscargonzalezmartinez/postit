@@ -14,7 +14,12 @@ public class PostitRest {
 	@Autowired
 	private PostitRepository postitRepository = null;
 	
-	@RequestMapping("/postit/{userId}")
+	@RequestMapping("/postit/{postitId}")
+	public Postit get(@PathVariable("postitId") Long postitId){
+		return postitRepository.findOne(postitId);
+	}
+	
+	@RequestMapping("/postit/user/{userId}")
 	public List<Postit> find(@PathVariable("userId") Long userId){
 		return postitRepository.findByUserId(userId);
 	}
