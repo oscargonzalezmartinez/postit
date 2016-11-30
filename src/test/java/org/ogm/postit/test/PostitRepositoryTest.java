@@ -12,8 +12,9 @@ public class PostitRepositoryTest extends TestBase{
 	private PostitRepository postitRepository = null;
 	
 	@Test
-	public void findPostItByUser(){
+	public void findPostitByUser(){
 		User user = UserFactory.newUser();
 		postitRepository.findByUserId(user.getId());
 	}
+
 }
